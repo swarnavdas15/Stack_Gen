@@ -1,76 +1,107 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STACK_GEN // Architect 2026</title>
+    <title>Vision_Stack // Architect 2026</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div id="view-config" class="container">
-        <header>
-            <p class="subtitle">Architecture Rule Engine</p>
-            <h1>Stack<span>Gen</span> 2026</h1>
-        </header>
 
-        <div class="config-panel">
-            <div class="input-group">
-                <label>Startup Stage</label>
-                <select id="stage">
-                    <option value="MVP">MVP</option>
-                    <option value="SaaS">SaaS</option>
-                    <option value="Early Stage">Early Stage</option>
-                    <option value="Scale">Scale</option>
-                    <option value="Pre-IPO">Pre-IPO</option>
-                    <option value="Public">Public / Enterprise</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <label>Team Size</label>
-                <select id="team">
-                    <option value="Small">Small (< 20)</option>
-                    <option value="Mid-Large">Mid-Large (50-200)</option>
-                    <option value="Large">Large (> 200)</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <label>Monthly Budget</label>
-                <select id="budget">
-                    <option value="Low">Low (Optimized)</option>
-                    <option value="Medium">Medium (Balanced)</option>
-                    <option value="High">High (High Performance)</option>
-                    <option value="Very High">Very High (Infrastructure Moat)</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <label>Sector</label>
-                <select id="sector">
-                    <option value="Quick Commerce">Quick Commerce</option>
-                    <option value="Fintech (EWA)">Fintech / Lending</option>
-                    <option value="Healthtech">Healthtech / AI</option>
-                    <option value="Health & Fitness">Health & Fitness</option>
-                    <option value="Fintech">Digital Payments</option>
-                    <option value="E-Pharmacy">E-Pharmacy / Logistics</option>
-                </select>
-            </div>
-            <button class="btn-generate" id="generateBtn">Generate Architectural Report</button>
+<div id="view-config" class="container">
+    <header>
+        <p class="subtitle">Architecture Rule Engine</p>
+        <h1>Vision<span>Stack</span> 2026</h1>
+    </header>
+
+    <div class="config-panel">
+        <div class="input-group">
+            <label>Startup Stage</label>
+            <select id="stage">
+                <option value="MVP">MVP</option>
+                <option value="SaaS">SaaS</option>
+                <option value="Early Stage">Early Stage</option>
+                <option value="Scale">Scale</option>
+                <option value="Pre-IPO">Pre-IPO</option>
+                <option value="Public">Public / Enterprise</option>
+            </select>
         </div>
-    </div>
 
-    <div id="loading-overlay" class="overlay" style="display: none;">
-        <div class="loader"></div>
-        <p>Synthesizing Market Data...</p>
-    </div>
+        <div class="input-group">
+            <label>Team Size</label>
+            <select id="team">
+                <option value="Small">Small (&lt; 20)</option>
+                <option value="Mid-Large">Mid-Large (50-200)</option>
+                <option value="Large">Large (&gt; 200)</option>
+            </select>
+        </div>
 
-    <div id="view-report" class="report-container" style="display: none;">
-        <nav class="report-nav">
-            <button onclick="window.location.reload()" class="back-btn">← New Analysis</button>
-            <div class="brand">Stack<span>Gen</span> // 2026_Report</div>
-        </nav>
-        <div id="report-content"></div>
+        <div class="input-group">
+            <label>Monthly Budget</label>
+            <select id="budget">
+                <option value="Low">Low (Optimized)</option>
+                <option value="Medium">Medium (Balanced)</option>
+                <option value="High">High (High Performance)</option>
+                <option value="Very High">Very High (Infrastructure Moat)</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label>Sector</label>
+            <select id="sector">
+                <option value="Quick Commerce">Quick Commerce</option>
+                <option value="Fintech (EWA)">Fintech / Lending</option>
+                <option value="Healthtech">Healthtech / AI</option>
+                <option value="Health & Fitness">Health & Fitness</option>
+                <option value="Fintech">Digital Payments</option>
+                <option value="E-Pharmacy">E-Pharmacy / Logistics</option>
+            </select>
+        </div>
+
+        <button class="btn-generate" id="generateBtn">
+            Generate Architectural Report
+        </button>
     </div>
+</div>
+
+<!-- LOADING -->
+<div id="loading-overlay" class="overlay" style="display: none;">
+    <div class="loader"></div>
+    <p>Synthesizing Market Data...</p>
+</div>
+
+<!-- REPORT VIEW -->
+<div id="view-report" class="report-container" style="display: none;">
+    <nav class="report-nav">
+        <button onclick="window.location.reload()" class="back-btn">
+            ← New Analysis
+        </button>
+
+        <div class="brand">
+            Vision<span>Stack</span> // 2026_Report
+        </div>
+
+        <!-- 🧠 LOG BUTTON -->
+        <div class="log-icon" onclick="toggleLogs()">🧠 Logs</div>
+    </nav>
+
+    <div id="report-content"></div>
+</div>
+
+<!-- 🧠 LOG POPUP -->
+<div id="log-popup" class="log-popup ">
+    <div class="log-box">
+        <h2>Decision Logs</h2>
+        <ul id="log-list"></ul>
+        <button onclick="toggleLogs()" class="back-btn" style="margin-top:15px;">
+            Close
+        </button>
+    </div>
+</div>
 
 <script src="script.js"></script>
+
 </body>
 </html>

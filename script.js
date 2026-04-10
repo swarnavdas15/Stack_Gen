@@ -151,14 +151,31 @@ const dataset = [
     }
 ];
 
+const decisionLogs = [
+    "Epik: Switched to Shopify Plus to eliminate backend complexity",
+    "Hastee: Migrated core financial engine to Java for accuracy",
+    "Practo: Implemented ABDM + FHIR for healthcare compliance",
+    "Cult.fit: Rewrote APIs in Java after Node.js bottlenecks",
+    "Paytm: Built hybrid infra for massive transaction handling",
+    "SaaS MVP: Used Firebase to skip backend development",
+    "Quick Commerce: Prioritized logistics APIs over microservices",
+    "FinOps: Avoided multi-AZ early to reduce infra cost"
+];
+
+function toggleLogs() {
+    const popup = document.getElementById('log-popup');
+    popup.style.display = popup.style.display === 'flex' ? 'none' : 'flex';
+}
+
+function renderLogs() {
+    const list = document.getElementById('log-list');
+    list.innerHTML = decisionLogs.map(log => `<li>🚀 ${log}</li>`).join('');
+}
+
 function getStageMessage(stage) {
-    if (stage === "MVP") {
-        return "Focus on speed. Avoid over-engineering. Validate idea first.";
-    }
-    if (stage === "Early Growth" || stage === "Early Stage") {
-        return "Start structuring your system. Monitor costs and stability.";
-    }
-    return "Optimize performance and cost. Scale efficiently.";
+    if (stage === "MVP") return "Focus on speed. Avoid over-engineering.";
+    if (stage === "Early Stage") return "Stabilize system and track costs.";
+    return "Optimize performance and scale efficiently.";
 }
 
 function findBestMatch(input) {
@@ -195,6 +212,7 @@ document.getElementById('generateBtn').addEventListener('click', function () {
     setTimeout(() => {
         const match = findBestMatch(input);
         renderReport(match, input.stage);
+        renderLogs(); // 🔥 IMPORTANT
         document.getElementById('loading-overlay').style.display = 'none';
         document.getElementById('view-report').style.display = 'block';
     }, 1200);
